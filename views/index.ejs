@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="d-flex align-items-center justify-content-center vh-100">
+        <div class="card shadow-lg p-4" style="width: 100%; max-width: 500px;">
+            <h1 class="text-center mb-4">URL Shortener</h1>
+            <form id="urlForm" method="POST" action="/">
+                <div class="form-group">
+                    <input type="text" name="originalUrl" id="originalUrl" class="form-control" placeholder="Enter your URL here..." required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Shorten URL</button>
+            </form>
+            <div id="shortenedUrlContainer" class="mt-4">
+                <% if (shortenedUrl) { %>
+                    <div class="alert alert-success text-center" role="alert">
+                        Shortened URL: <a href="<%= shortenedUrl %>" target="_blank"><%= shortenedUrl %></a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <p class="mb-0">Created by <a href="https://esakkirajam.netlify.app" class="text-white" target="_blank">Esakki Raja M</a></p>
+        <p class="mb-0">© <%= new Date().getFullYear() %> URL Shortener</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/app.js"></script>
+</body>
+</html>
